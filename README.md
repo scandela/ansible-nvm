@@ -30,6 +30,15 @@ Example Playbook
             user: deploy
             version: v0.4.0
             node_version: '0.10'
+            packages: [pm2, grunt-cli]
+
+Example Group vars
+--------------------------
+nvm:
+  user: ubuntu
+  version: v0.31.2
+  node_version: 0.12.15
+  packages: [pm2, grunt-cli]
 
 License
 -------

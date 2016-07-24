@@ -40,3 +40,9 @@
   command: sudo -iu {{ nvm.user }} nvm alias default {{ nvm.node_version }}
   when: nvm_check_default|failed
   tags: nvm
+
+- name: install packages for each user
+  shell: bash -lc "nvm use {{ nvm.node_version }} && npm install -g {{ item }}"
+  become: true
+  become_user: "{{ nvm.user }}"
+  with_items: "{{ nvm.packages }}"
